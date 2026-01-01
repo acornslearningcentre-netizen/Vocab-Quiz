@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>11+ Vocabulary Master Quiz - Acorns Learning Centre</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body {
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+</style>
+</head>
+<body class="bg-gradient-to-br from-indigo-50 to-blue-50 min-h-screen">
+<div id="app"></div>
+
+```
+<script>
+const questions = [
+{
+type: "multiple-choice",
+question: "What does 'abundant' mean?",
+options: ["Scarce and rare", "Existing in large quantities", "Difficult to find", "Very expensive"],
+correct: 1,
+explanation: "Abundant means existing or available in large quantities; plentiful."
+},
+{
+type: "root-word",
+question: "The word 'conspire' comes from Latin roots. 'Con-' means 'together' and 'spirare' means 'to breathe'. What does conspire mean?",
+options: ["To breathe deeply", "To plot secretly with others", "To exercise together", "To speak loudly"],
+correct: 1,
+explanation: "Conspire means to secretly plan with others to do something harmful or illegal - literally 'breathing together' in secret!"
+},
+{
+type: "sentence",
+question: "Choose the sentence where 'obsolete' is used correctly:",
+options: [
+"The new phone made my old one obsolete.",
+"I felt obsolete after running the marathon.",
+"The obsolete cake was delicious.",
+"She had an obsolete personality."
+],
+correct: 0,
+explanation: "Obsolete means no longer produced or used; out of date. Technology often becomes obsolete when newer versions are released."
+},
+{
+type: "synonym",
+question: "Which word is closest in meaning to 'belligerent'?",
+options: ["Peaceful", "Aggressive", "Friendly", "Calm"],
+correct: 1,
+explanation: "Belligerent means hostile and aggressive, ready to fight or argue."
+},
+{
+type: "context",
+question: "The village was _____ after years of war, with crumbling buildings and empty streets.",
+options: ["flourishing", "derelict", "pristine", "bustling"],
+correct: 1,
+explanation: "Derelict means in a very poor condition as a result of disuse and neglect."
+},
+{
+type: "antonym",
+question: "What is the opposite of 'prosperity'?",
+options: ["Wealth", "Destitution", "Success", "Fortune"],
+correct: 1,
+explanation: "Destitution (extreme poverty) is the opposite of prosperity (wealth and success)."
+},
+{
+type: "multiple-choice",
+question: "What does 'meticulous' mean?",
+options: ["Careless and messy", "Very careful and precise", "Quick and hasty", "Lazy and slow"],
+correct: 1,
+explanation: "Meticulous means showing great attention to detail; very careful and precise."
+},
+{
+type: "sentence",
+question: "Select the sentence where 'frivolous' is used correctly:",
+options: [
+"The frivolous mountain was difficult to climb.",
+"She made a frivolous purchase of designer shoes she didn't need.",
+"His frivolous research won the Nobel Prize.",
+"The frivolous medicine cured her illness."
+],
+correct: 1,
+explanation: "Frivolous means not having any serious purpose or value; carefree and superficial."
+},
+{
+type: "synonym",
+question: "Which word means the same as 'obscure'?",
+options: ["Clear", "Obvious", "Vague", "Bright"],
+correct: 2,
+explanation: "Obscure means not clearly expressed or easily understood; vague or unclear."
+},
+{
+type: "context",
+question: "The _____ landscape stretched for miles with barely a tree in sight.",
+options: ["fertile", "lush", "barren", "verdant"],
+correct: 2,
+explanation: "Barren means too poor to produce much or any vegetation; bare and bleak."
+},
+{
+type: "multiple-choice",
+question: "What does 'accommodate' mean?",
+options: ["To refuse entry", "To provide lodging or adapt to needs", "To argue loudly", "To leave quickly"],
+correct: 1,
+explanation: "Accommodate means to provide lodging or sufficient space for, or to adapt to someone's needs."
+},
+{
+type: "sentence",
+question: "Which sentence uses 'anxious' correctly?",
+options: [
+"She was anxious to start her new job.",
+"The anxious cake tasted delicious.",
+"He drove an anxious car.",
+"The weather was anxious today."
+],
+correct: 0,
+explanation: "Anxious means experiencing worry, unease, or nervousness, or eager to do something."
+},
+{
+type: "context",
+question: "The emperor's _____ speech inspired the troops before battle.",
+options: ["timid", "hesitant", "rousing", "quiet"],
+correct: 2,
+explanation: "A rousing speech is stirring and inspiring, perfect for motivating troops."
+},
+{
+type: "root-word",
+question: "'Benevolent' contains 'bene-' meaning 'good' and 'volent' from 'to wish'. What does benevolent mean?",
+options: ["Wishing harm", "Kind and well-meaning", "Angry", "Indifferent"],
+correct: 1,
+explanation: "Benevolent means well-meaning and kindly - literally wishing good for others."
+},
+{
+type: "synonym",
+question: "Which word is closest to 'bewildered'?",
+options: ["Confident", "Confused", "Happy", "Angry"],
+correct: 1,
+explanation: "Bewildered means perplexed and confused; completely puzzled."
+},
+{
+type: "multiple-choice",
+question: "What does 'chaos' mean?",
+options: ["Perfect order", "Complete disorder and confusion", "Quiet peace", "Careful planning"],
+correct: 1,
+explanation: "Chaos means complete disorder and confusion; utter confusion or disorder."
+},
+{
+type: "context",
+question: "The detective worked hard to _____ the truth about the mysterious case.",
+options: ["hide", "conceal", "reveal", "forget"],
+correct: 2,
+explanation: "Reveal means to make known or show something that was hidden or secret."
+},
+{
+type: "sentence",
+question: "Select the correct usage of 'conceited':",
+options: [
+"The conceited bridge connected the two towns.",
+"She was so conceited that she constantly talked about her achievements.",
+"The conceited recipe made a delicious meal.",
+"They had a conceited meeting yesterday."
+],
+correct: 1,
+explanation: "Conceited means excessively proud of oneself; vain and full of self-importance."
+},
+{
+type: "antonym",
+question: "What is the opposite of 'condemn'?",
+options: ["Criticize", "Blame", "Praise", "Punish"],
+correct: 2,
+explanation: "Condemn means to express complete disapproval; the opposite is to praise or approve."
+},
+{
+type: "multiple-choice",
+question: "What does 'cultivate' mean?",
+options: ["To destroy", "To prepare and use land for crops, or develop a quality", "To abandon", "To purchase"],
+correct: 1,
+explanation: "Cultivate means to prepare and use land for growing crops, or to try to develop a quality or skill."
+},
+{
+type: "root-word",
+question: "'Democracy' contains 'demos' meaning 'people' and 'kratos' meaning 'power'. What does democracy mean?",
+options: ["Rule by one person", "Government by the people", "Military rule", "Religious rule"],
+correct: 1,
+explanation: "Democracy means a system of government by the whole population - literally 'people power'."
+},
+{
+type: "context",
+question: "The soldier showed great _____ in refusing to retreat despite overwhelming odds.",
+options: ["cowardice", "weakness", "courage", "fear"],
+correct: 2,
+explanation: "Courage means the ability to do something that frightens you; bravery."
+},
+{
+type: "synonym",
+question: "Which word means the same as 'despair'?",
+options: ["Hope", "Joy", "Hopelessness", "Excitement"],
+correct: 2,
+explanation: "Despair means the complete loss or absence of hope; hopelessness."
+},
+{
+type: "sentence",
+question: "Choose the sentence where 'dilapidated' is used correctly:",
+options: [
+"The dilapidated new building gleamed in the sun.",
+"She wore a dilapidated smile.",
+"The dilapidated old mansion was falling apart.",
+"He had dilapidated ideas about the future."
+],
+correct: 2,
+explanation: "Dilapidated means in a state of disrepair or ruin as a result of age or neglect."
+},
+{
+type: "multiple-choice",
+question: "What does 'earnest' mean?",
+options: ["Joking and playful", "Serious in intention and sincere", "Lazy and careless", "Dishonest"],
+correct: 1,
+explanation: "Earnest means resulting from or showing sincere and intense conviction; serious."
+},
+{
+type: "context",
+question: "The team worked with _____ to complete the project before the deadline.",
+options: ["laziness", "reluctance", "diligence", "hesitation"],
+correct: 2,
+explanation: "Diligence means careful and persistent work or effort; conscientiousness."
+},
+{
+type: "antonym",
+question: "What is the opposite of 'feeble'?",
+options: ["Weak", "Strong", "Tired", "Sick"],
+correct: 1,
+explanation: "Feeble means lacking physical strength; the opposite is strong or robust."
+},
+{
+type: "root-word",
+question: "'Emigrate' contains 'e-' meaning 'out' and 'migrate' meaning 'to move'. What does emigrate mean?",
+options: ["To stay in one place", "To leave one's country to live in another", "To visit briefly", "To import goods"],
+correct: 1,
+explanation: "Emigrate means to leave one's own country to settle permanently in another."
+},
+{
+type: "sentence",
+question: "Which sentence uses 'flourish' correctly?",
+options: [
+"The business began to flourish after the new strategy.",
+"She flourished her teeth.",
+"The flourish water was cold.",
+"He had a flourish cold."
+],
+correct: 0,
+explanation: "Flourish means to grow or develop in a healthy or vigorous way; to thrive."
+},
+{
+type: "multiple-choice",
+question: "What does 'grotesque' mean?",
+options: ["Beautiful and elegant", "Comically or repulsively ugly or distorted", "Very small", "Perfectly normal"],
+correct: 1,
+explanation: "Grotesque means comically or repulsively ugly or distorted; bizarre and unnatural."
+},
+{
+type: "synonym",
+question: "Which word is closest to 'humble'?",
+options: ["Arrogant", "Proud", "Modest", "Boastful"],
+correct: 2,
+explanation: "Humble means having or showing a modest or low estimate of one's importance; modest."
+},
+{
+type: "context",
+question: "The ancient ruins were _____ after centuries of abandonment.",
+options: ["pristine", "new", "crumbling", "modern"],
+correct: 2,
+explanation: "Crumbling means breaking or falling apart into small fragments, especially as part of deterioration."
+},
+{
+type: "multiple-choice",
+question: "What does 'imitate' mean?",
+options: ["To create something new", "To copy the behavior or appearance of", "To destroy", "To ignore"],
+correct: 1,
+explanation: "Imitate means to take or follow as a model; to copy someone's speech or mannerisms."
+},
+{
+type: "sentence",
+question: "Select the correct usage of 'inferior':",
+options: [
+"The inferior product broke after one use.",
+"She had inferior happiness today.",
+"The weather was inferior and sunny.",
+"He drove an inferior fast car."
+],
+correct: 0,
+explanation: "Inferior means lower in rank, status, or quality; not as good as something else."
+},
+{
+type: "antonym",
+question: "What is the opposite of 'vacant'?",
+options: ["Empty", "Occupied", "Available", "Open"],
+correct: 1,
+explanation: "Vacant means empty or not occupied; the opposite is occupied or filled."
+},
+{
+type: "root-word",
+question: "'Juvenile' contains 'juven-' meaning 'young'. What does juvenile mean?",
+options: ["Very old", "For or relating to young people", "Adult-like", "Ancient"],
+correct: 1,
+explanation: "Juvenile means for, relating to, or characteristic of young people; youthful."
+},
+{
+type: "context",
+question: "The _____ leader made decisions without consulting anyone else.",
+options: ["democratic", "collaborative", "tyrannical", "humble"],
+correct: 2,
+explanation: "Tyrannical means exercising power in a cruel or arbitrary way; characteristic of a tyrant."
+},
+{
+type: "multiple-choice",
+question: "What does 'lament' mean?",
+options: ["To celebrate", "To express sorrow or regret", "To laugh", "To ignore"],
+correct: 1,
+explanation: "Lament means to express passionate grief or sorrow about something; to mourn."
+},
+{
+type: "synonym",
+question: "Which word means the same as 'lavish'?",
+options: ["Simple", "Plain", "Extravagant", "Modest"],
+correct: 2,
+explanation: "Lavish means sumptuously rich, elaborate, or luxurious; spending or giving generously."
+},
+{
+type: "sentence",
+question: "Which sentence uses 'liberty' correctly?",
+options: [
+"The liberty car drove down the street.",
+"Citizens value their liberty and freedom.",
+"She had a liberty sandwich for lunch.",
+"The liberty weather was pleasant."
+],
+correct: 1,
+explanation: "Liberty means the state of being free within society from oppressive restrictions; freedom."
+},
+{
+type: "multiple-choice",
+question: "What does 'loneliness' mean?",
+options: ["Being surrounded by friends", "Sadness from being alone", "Excitement", "Anger"],
+correct: 1,
+explanation: "Loneliness means sadness because one has no friends or company; isolation."
+},
+{
+type: "context",
+question: "The _____ mountain peak was covered in eternal snow.",
+options: ["low", "valley", "lofty", "underground"],
+correct: 2,
+explanation: "Lofty means of imposing height; elevated in character and spirit."
+},
+{
+type: "antonym",
+question: "What is the opposite of 'maximum'?",
+options: ["Highest", "Greatest", "Minimum", "Average"],
+correct: 2,
+explanation: "Maximum means the greatest amount possible; the opposite is minimum or least."
+},
+{
+type: "root-word",
+question: "'Manuscript' contains 'manu-' meaning 'hand' and 'script' meaning 'written'. What does manuscript mean?",
+options: ["A printed book", "A handwritten document", "A typed letter", "A digital file"],
+correct: 1,
+explanation: "Manuscript means a book, document, or piece of music written by hand - literally 'hand-written'."
+},
+{
+type: "sentence",
+question: "Choose the correct usage of 'modest':",
+options: [
+"The modest building was the tallest in the city.",
+"She gave a modest estimate of her abilities, not wanting to boast.",
+"The modest noise was deafening.",
+"He wore modest bright colors."
+],
+correct: 1,
+explanation: "Modest means unassuming in the estimation of one's abilities; humble and moderate."
+},
+{
+type: "synonym",
+question: "Which word is closest to 'mysterious'?",
+options: ["Clear", "Obvious", "Enigmatic", "Simple"],
+correct: 2,
+explanation: "Mysterious and enigmatic both mean difficult to interpret or understand; puzzling."
+},
+{
+type: "multiple-choice",
+question: "What does 'nimble' mean?",
+options: ["Slow and clumsy", "Quick and light in movement", "Heavy", "Awkward"],
+correct: 1,
+explanation: "Nimble means quick and light in movement or action; agile."
+},
+{
+type: "context",
+question: "The _____ smell from the garbage attracted flies.",
+options: ["pleasant", "fragrant", "noxious", "sweet"],
+correct: 2,
+explanation: "Noxious means harmful, poisonous, or very unpleasant, especially a smell."
+},
+{
+type: "sentence",
+question: "Select the correct usage of 'obstinate':",
+options: [
+"The obstinate clock showed the wrong time.",
+"She was obstinate and refused to change her mind despite evidence.",
+"The obstinate flowers bloomed beautifully.",
+"He ate obstinate food."
+],
+correct: 1,
+explanation: "Obstinate means stubbornly refusing to change one's opinion or course of action."
+},
+{
+type: "antonym",
+question: "What is the opposite of 'opponent'?",
+options: ["Enemy", "Rival", "Ally", "Competitor"],
+correct: 2,
+explanation: "An opponent is someone who competes against you; the opposite is an ally or supporter."
+},
+{
+type: "multiple-choice",
+question: "What does 'peculiar' mean?",
+options: ["Common and ordinary", "Strange or unusual", "Beautiful", "Typical"],
+correct: 1,
+explanation: "Peculiar means strange or odd; unusual or distinctive in character."
+},
+{
+type: "root-word",
+question: "'Perimeter' contains 'peri-' meaning 'around' and 'meter' meaning 'measure'. What does perimeter mean?",
+options: ["The center point", "The boundary or outer edge", "The area inside", "The diameter"],
+correct: 1,
+explanation: "Perimeter means the continuous line forming the boundary of a closed geometric figure."
+},
+{
+type: "context",
+question: "The journey through the desert was _____ and filled with danger.",
+options: ["safe", "easy", "perilous", "comfortable"],
+correct: 2,
+explanation: "Perilous means full of danger or risk; hazardous."
+},
+{
+type: "synonym",
+question: "Which word means the same as 'persuade'?",
+options: ["Force", "Convince", "Command", "Demand"],
+correct: 1,
+explanation: "Persuade means to cause someone to believe or do something through reasoning or argument; convince."
+},
+{
+type: "sentence",
+question: "Which sentence uses 'pompous' correctly?",
+options: [
+"The pompous sky was blue.",
+"His pompous speech was full of self-importance and big words.",
+"She wore pompous shoes.",
+"The pompous car drove quickly."
+],
+correct: 1,
+explanation: "Pompous means affectedly grand, solemn, or self-important; pretentious."
+},
+{
+type: "multiple-choice",
+question: "What does 'precarious' mean?",
+options: ["Safe and secure", "Not securely held or positioned; dangerously uncertain", "Comfortable", "Permanent"],
+correct: 1,
+explanation: "Precarious means not securely held or in position; dangerously likely to fall or collapse."
+},
+{
+type: "context",
+question: "The judge showed no _____ toward the defendant, treating all fairly.",
+options: ["justice", "fairness", "prejudice", "equality"],
+correct: 2,
+explanation: "Prejudice means preconceived opinion not based on reason or actual experience; bias."
+},
+{
+type: "antonym",
+question: "What is the opposite of 'prominent'?",
+options: ["Famous", "Important", "Obscure", "Notable"],
+correct: 2,
+explanation: "Prominent means important or famous; the opposite is obscure or insignificant."
+},
+{
+type: "root-word",
+question: "'Postpone' contains 'post-' meaning 'after' and 'ponere' meaning 'to place'. What does postpone mean?",
+options: ["To do immediately", "To delay until a later time", "To cancel", "To start early"],
+correct: 1,
+explanation: "Postpone means to arrange for something to take place at a later time than originally scheduled."
+},
+{
+type: "sentence",
+question: "Choose the correct usage of 'prosperous':",
+options: [
+"The prosperous road was bumpy.",
+"After years of hard work, the business became prosperous and successful.",
+"She had prosperous sadness.",
+"The prosperous weather was terrible."
+],
+correct: 1,
+explanation: "Prosperous means successful in material terms; flourishing financially."
+},
+{
+type: "synonym",
+question: "Which word is closest to 'quaint'?",
+options: ["Modern", "Charmingly unusual", "Ordinary", "Ugly"],
+correct: 1,
+explanation: "Quaint means attractively unusual or old-fashioned; charmingly peculiar."
+},
+{
+type: "multiple-choice",
+question: "What does 'ramble' mean?",
+options: ["To speak clearly", "To walk or talk at length in a confused way", "To run quickly", "To stay still"],
+correct: 1,
+explanation: "Ramble means to walk for pleasure without a definite route, or to talk at length in a confused way."
+},
+{
+type: "context",
+question: "The child showed _____ behavior, acting disrespectfully toward adults.",
+options: ["polite", "respectful", "insolent", "courteous"],
+correct: 2,
+explanation: "Insolent means showing a rude and arrogant lack of respect."
+},
+{
+type: "sentence",
+question: "Select the correct usage of 'relevant':",
+options: [
+"The relevant information helped solve the case.",
+"She wore relevant clothing.",
+"The relevant car was red.",
+"He ate relevant breakfast."
+],
+correct: 0,
+explanation: "Relevant means closely connected or appropriate to what is being done or considered."
+},
+{
+type: "antonym",
+question: "What is the opposite of 'rigid'?",
+options: ["Stiff", "Inflexible", "Flexible", "Hard"],
+correct: 2,
+explanation: "Rigid means unable to bend or be forced out of shape; the opposite is flexible."
+},
+{
+type: "multiple-choice",
+question: "What does 'robust' mean?",
+options: ["Weak and frail", "Strong and healthy; vigorous", "Sick", "Tired"],
+correct: 1,
+explanation: "Robust means strong and healthy; vigorous and sturdy."
+},
+{
+type: "root-word",
+question: "'Rupture' contains 'rupt-' meaning 'break'. What does rupture mean?",
+options: ["To fix", "To break or burst suddenly", "To build", "To strengthen"],
+correct: 1,
+explanation: "Rupture means to break or burst suddenly; a breach of a harmonious relationship."
+},
+{
+type: "context",
+question: "The ancient temple was considered _____ by the local community.",
+options: ["ordinary", "mundane", "sacred", "worthless"],
+correct: 2,
+explanation: "Sacred means connected with God or dedicated to a religious purpose; regarded with reverence."
+},
+{
+type: "synonym",
+question: "Which word means the same as 'seldom'?",
+options: ["Often", "Always", "Rarely", "Frequently"],
+correct: 2,
+explanation: "Seldom means not often; rarely."
+},
+{
+type: "sentence",
+question: "Which sentence uses 'sincere' correctly?",
+options: [
+"The sincere table was made of wood.",
+"Her sincere apology showed genuine remorse.",
+"The sincere weather was cold.",
+"He drove a sincere car."
+],
+correct: 1,
+explanation: "Sincere means free from pretense or deceit; proceeding from genuine feelings."
+},
+{
+type: "multiple-choice",
+question: "What does 'stubborn' mean?",
+options: ["Easy to convince", "Refusing to change one's mind", "Agreeable", "Flexible"],
+correct: 1,
+explanation: "Stubborn means having or showing dogged determination not to change one's attitude."
+},
+{
+type: "context",
+question: "The lake was _____ and peaceful, without a ripple on the surface.",
+options: ["stormy", "turbulent", "tranquil", "violent"],
+correct: 2,
+explanation: "Tranquil means free from disturbance; calm and peaceful."
+},
+{
+type: "antonym",
+question: "What is the opposite of 'trivial'?",
+options: ["Unimportant", "Minor", "Significant", "Small"],
+correct: 2,
+explanation: "Trivial means of little value or importance; the opposite is significant or important."
+},
+{
+type: "root-word",
+question: "'Uniform' contains 'uni-' meaning 'one' and 'form' meaning 'shape'. What does uniform mean?",
+options: ["Many different shapes", "Not changing in form; identical", "Colorful", "Random"],
+correct: 1,
+explanation: "Uniform means remaining the same in all cases and at all times; unchanging in form."
+},
+{
+type: "sentence",
+question: "Choose the correct usage of 'vast':",
+options: [
+"The vast desert stretched endlessly before them.",
+"She had a vast pencil.",
+"The vast moment passed quickly.",
+"He wore vast socks."
+],
+correct: 0,
+explanation: "Vast means of very great extent or quantity; immense."
+},
+{
+type: "synonym",
+question: "Which word is closest to 'veil'?",
+options: ["Reveal", "Expose", "Conceal", "Display"],
+correct: 2,
+explanation: "As a verb, veil means to cover or conceal; to hide."
+},
+{
+type: "multiple-choice",
+question: "What does 'weary' mean?",
+options: ["Energetic and lively", "Feeling tired or exhausted", "Happy", "Excited"],
+correct: 1,
+explanation: "Weary means feeling or showing tiredness; exhausted."
+},
+{
+type: "context",
+question: "The plants began to _____ without water in the drought.",
+options: ["flourish", "bloom", "wither", "grow"],
+correct: 2,
+explanation: "Wither means to become dry and shriveled; to decline or decay."
+},
+{
+type: "sentence",
+question: "Select the correct usage of 'absurd':",
+options: [
+"The absurd idea of flying pigs made everyone laugh.",
+"She wore an absurd beautiful dress.",
+"The absurd sun was shining.",
+"He had absurd health."
+],
+correct: 0,
+explanation: "Absurd means wildly unreasonable, illogical, or inappropriate; ridiculous."
+},
+{
+type: "antonym",
+question: "What is the opposite of 'advance'?",
+options: ["Progress", "Move forward", "Retreat", "Improve"],
+correct: 2,
+explanation: "Advance means move forward; the opposite is retreat or withdraw."
+},
+{
+type: "multiple-choice",
+question: "What does 'aggression' mean?",
+options: ["Peaceful behavior", "Hostile or violent behavior", "Kindness", "Gentleness"],
+correct: 1,
+explanation: "Aggression means feelings of anger or hostility resulting in hostile or violent behavior."
+},
+{
+type: "root-word",
+question: "'Aquatic' contains 'aqua-' meaning 'water'. What does aquatic mean?",
+options: ["Related to land", "Related to air", "Related to water", "Related to fire"],
+correct: 2,
+explanation: "Aquatic means relating to water; living or growing in or near water."
+},
+{
+type: "context",
+question: "The politician tried to _____ his opponent with false accusations.",
+options: ["praise", "support", "defame", "help"],
+correct: 2,
+explanation: "Defame means to damage the good reputation of someone; slander or libel."
+},
+{
+type: "synonym",
+question: "Which word means the same as 'betray'?",
+options: ["Support", "Be disloyal to", "Help", "Protect"],
+correct: 1,
+explanation: "Betray means to be disloyal to; to expose someone to danger by treacherously giving information."
+},
+{
+type: "sentence",
+question: "Which sentence uses 'brief' correctly?",
+options: [
+"The brief presentation lasted only five minutes.",
+"She wore a brief tall building.",
+"The brief ocean was deep.",
+"He had brief blue eyes."
+],
+correct: 0,
+explanation: "Brief means of short duration; concise in expression."
+},
+{
+type: "multiple-choice",
+question: "What does 'burden' mean?",
+options: ["A gift", "A heavy load or responsibility", "A pleasure", "Entertainment"],
+correct: 1,
+explanation: "Burden means a load, typically a heavy one; a duty or responsibility that causes hardship."
+},
+{
+type: "context",
+question: "The _____ in the schedule allowed us to grab lunch between meetings.",
+options: ["conflict", "overlap", "gap", "chaos"],
+correct: 2,
+explanation: "A gap is a break or hole in an object or between two objects; an interval of time."
+},
+{
+type: "antonym",
+question: "What is the opposite of 'coarse'?",
+options: ["Rough", "Harsh", "Fine", "Thick"],
+correct: 2,
+explanation: "Coarse means rough or harsh in texture; the opposite is fine or smooth."
+},
+{
+type: "root-word",
+question: "'Conclude' contains 'con-' meaning 'together' and 'cludere' meaning 'to close'. What does conclude mean?",
+options: ["To begin", "To bring to an end; finish", "To open", "To start"],
+correct: 1,
+explanation: "Conclude means to bring something to an end; to arrive at a judgment by reasoning."
+},
+{
+type: "sentence",
+question: "Choose the correct usage of 'contempt':",
+options: [
+"The contempt chair was comfortable.",
+"She showed contempt for rules by constantly breaking them.",
+"The contempt weather was pleasant.",
+"He drove with contempt speed."
+],
+correct: 1,
+explanation: "Contempt means the feeling that a person or thing is worthless; disdain."
+},
+{
+type: "synonym",
+question: "Which word is closest to 'controversy'?",
+options: ["Agreement", "Harmony", "Dispute", "Peace"],
+correct: 2,
+explanation: "Controversy means prolonged public disagreement or heated discussion; dispute."
+},
+{
+type: "multiple-choice",
+question: "What does 'convict' mean?",
+options: ["To free someone", "To declare guilty of a criminal offense", "To praise", "To ignore"],
+correct: 1,
+explanation: "Convict means to declare someone guilty of a criminal offense by verdict of a jury."
+},
+{
+type: "context",
+question: "After winning the championship, the team felt _____ with pride.",
+options: ["ashamed", "embarrassed", "elated", "disappointed"],
+correct: 2,
+explanation: "Elated means extremely happy and excited; in high spirits."
+},
+{
+type: "sentence",
+question: "Select the correct usage of 'cunning':",
+options: [
+"The cunning fox outwitted the hunters with clever tricks.",
+"She wore cunning shoes.",
+"The cunning weather was cold.",
+"He had a cunning breakfast."
+],
+correct: 0,
+explanation: "Cunning means having or showing skill in achieving one's ends by deceit; crafty or sly."
+},
+{
+type: "antonym",
+question: "What is the opposite of 'decline'?",
+options: ["Decrease", "Fall", "Improve", "Worsen"],
+correct: 2,
+explanation: "Decline means to become smaller or fewer; the opposite is improve or increase."
+}
+];
+
+let currentQuestion = 0;
+let score = 0;
+let selectedAnswer = null;
+let answered = false;
+
+const getQuestionTypeLabel = (type) => {
+const labels = {
+"multiple-choice": "Definition",
+"root-word": "Root Words",
+"sentence": "Usage in Context",
+"synonym": "Synonyms",
+"antonym": "Antonyms",
+"context": "Fill in the Blank"
+};
+return labels[type] || "Question";
+};
+
+function render() {
+const app = document.getElementById('app');
+
+if (currentQuestion >= questions.length) {
+const percentage = Math.round((score / questions.length) * 100);
+let feedback = '';
+if (percentage >= 90) feedback = 'Outstanding! You\'re a vocabulary master! 🌟';
+else if (percentage >= 70) feedback = 'Great job! Keep practicing! 📚';
+else if (percentage >= 50) feedback = 'Good effort! Review and try again! 💪';
+else feedback = 'Keep learning! Practice makes perfect! 📖';
+
+app.innerHTML = `
+<div class="p-8">
+<div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-2xl p-8">
+<div class="text-center">
+<svg class="w-24 h-24 mx-auto text-yellow-500 mb-4" fill="currentColor" viewBox="0 0 20 20">
+<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+</svg>
+<h2 class="text-4xl font-bold text-gray-800 mb-4">Quiz Complete!</h2>
+<div class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white rounded-xl p-6 mb-6">
+<p class="text-6xl font-bold mb-2">${percentage}%</p>
+<p class="text-xl">You scored ${score} out of ${questions.length}</p>
+</div>
+<p class="text-2xl font-semibold mb-4 ${percentage >= 90 ? 'text-green-600' : percentage >= 70 ? 'text-blue-600' : percentage >= 50 ? 'text-orange-600' : 'text-red-600'}">${feedback}</p>
+<button onclick="location.reload()" class="bg-gradient-to-r from-indigo-600 to-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-indigo-700 hover:to-blue-700 transition-all transform hover:scale-105">
+↻ Try Again
+</button>
+</div>
+</div>
+<div class="text-center mt-8 text-gray-600">
+<p class="text-sm">Created by Acorns Learning Centre</p>
+<p class="text-xs mt-2">Montessori • Mastery • AI</p>
+</div>
+</div>
+`;
+return;
+}
+
+const question = questions[currentQuestion];
+const progress = ((currentQuestion + 1) / questions.length) * 100;
+
+app.innerHTML = `
+<div class="p-4 md:p-8">
+<div class="max-w-3xl mx-auto">
+<div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+<div class="bg-gradient-to-r from-indigo-600 to-blue-600 text-white p-6">
+<h1 class="text-3xl font-bold mb-2">11+ Vocabulary Master Quiz</h1>
+<p class="text-sm opacity-90 mb-3">Master 100 essential words for the 11+ exam</p>
+<div class="flex justify-between items-center">
+<span class="text-sm bg-white/20 px-4 py-2 rounded-full">
+Question ${currentQuestion + 1} of ${questions.length}
+</span>
+<span class="text-sm bg-white/20 px-4 py-2 rounded-full">
+Score: ${score}/${questions.length}
+</span>
+</div>
+</div>
+<div class="bg-gray-200 h-2">
+<div class="bg-gradient-to-r from-indigo-500 to-blue-500 h-2 transition-all duration-300" style="width: ${progress}%"></div>
+</div>
+<div class="p-8">
+<div class="mb-6">
+<span class="inline-block bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full text-sm font-semibold mb-4">
+${getQuestionTypeLabel(question.type)}
+</span>
+<h2 class="text-2xl font-semibold text-gray-800 leading-relaxed">
+${question.question}
+</h2>
+</div>
+<div class="space-y-3">
+${question.options.map((option, index) => `
+<button
+onclick="handleAnswer(${index})"
+${answered ? 'disabled' : ''}
+class="w-full text-left p-4 rounded-xl border-2 transition-all transform hover:scale-102 ${
+answered
+? index === question.correct
+? 'border-green-500 bg-green-50'
+: index === selectedAnswer
+? 'border-red-500 bg-red-50'
+: 'border-gray-200 bg-gray-50'
+: 'border-gray-200 hover:border-indigo-400 hover:bg-indigo-50 cursor-pointer'
+} ${answered ? 'cursor-not-allowed' : ''}">
+<div class="flex items-center justify-between">
+<span class="text-lg">${option}</span>
+${answered && index === question.correct ?
+'<span class="text-green-500">✓</span>' :
+answered && index === selectedAnswer && index !== question.correct ?
+'<span class="text-red-500">✗</span>' : ''
+}
+</div>
+</button>
+`).join('')}
+</div>
+${answered ? `
+<div class="mt-6 p-4 rounded-xl ${selectedAnswer === question.correct ? 'bg-green-50 border-2 border-green-200' : 'bg-blue-50 border-2 border-blue-200'}">
+<p class="font-semibold text-gray-800 mb-2">
+${selectedAnswer === question.correct ? '✓ Correct!' : '✗ Not quite!'}
+</p>
+<p class="text-gray-700">${question.explanation}</p>
+</div>
+<button
+onclick="nextQuestion()"
+class="mt-6 w-full bg-gradient-to-r from-indigo-600 to-blue-600 text-white py-4 rounded-xl font-semibold text-lg hover:from-indigo-700 hover:to-blue-700 transition-all transform hover:scale-105">
+${currentQuestion < questions.length - 1 ? 'Next Question →' : 'See Results →'}
+</button>
+` : ''}
+</div>
+</div>
+<div class="text-center mt-8 text-gray-600">
+<p class="text-sm">Created by Acorns Learning Centre</p>
+<p class="text-xs mt-2">Montessori • Mastery • AI</p>
+</div>
+</div>
+</div>
+`;
+}
+
+function handleAnswer(index) {
+if (answered) return;
+selectedAnswer = index;
+answered = true;
+if (index === questions[currentQuestion].correct) {
+score++;
+}
+render();
+}
+
+function nextQuestion() {
+currentQuestion++;
+selectedAnswer = null;
+answered = false;
+render();
+}
+
+// Make functions globally available
+window.handleAnswer = handleAnswer;
+window.nextQuestion = nextQuestion;
+
+// Initial render
+render();
+</script>
+```
+
+</body>
+</html>
